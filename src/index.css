@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --ease-fluid: cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  * {
+    box-sizing: border-box;
+    border-color: #272727;
+  }
+
+  html, body {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    font-style: normal;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Strict rule: Never use italic fonts anywhere in the interface */
+  *, *::before, *::after {
+    font-style: normal !important;
+  }
+
+  /* No orphaned words: text-wrap balance for headings, pretty for body copy */
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+    font-weight: 600;
+  }
+
+  p, li, span, blockquote {
+    text-wrap: pretty;
+  }
+
+  /* Geist Mono for numeric, code, and timestamp UI */
+  .font-mono, [data-mono="true"] {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Fluid transition helper adhering to B7 */
+.transition-fluid {
+  transition-property: all;
+  transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Hero text gradient adhering to B5 */
+.hero-heading-gradient {
+  background: linear-gradient(to right, #FFFFFF, #9B9B9B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #181818;
+}
+::-webkit-scrollbar-thumb {
+  background: #313131;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9B9B9B;
+}
